@@ -191,7 +191,7 @@ class WelcomeController extends Controller
         }
 
         // Check if it's the correct time to perform check-out
-        if ($currentTime->between(Carbon::createFromTime(15, 0, 0), Carbon::createFromTime(16, 0, 0))) {
+        if ($currentTime->between(Carbon::createFromTime(15, 0, 0), Carbon::createFromTime(1, 0, 0))) {
             // Update only if `jam_keluar` is not already set
             if (is_null($absensi->jam_keluar)) {
                 $absensi->jam_keluar = $currentTime->toTimeString();
