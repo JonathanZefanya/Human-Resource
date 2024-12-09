@@ -24,8 +24,8 @@ class PegawaiController extends Controller
             $pegawai->umur = floor(Carbon::parse($pegawai->tanggal_lahir)->diffInYears(Carbon::now()));
 
             // Mencari nama provinsi berdasarkan ID provinsi
-            $provinsi = collect($provinsis)->firstWhere('id', (string) $pegawai->provinsi);
-            $pegawai->nama_provinsi = $provinsi ? $provinsi['name'] : 'Provinsi tidak ditemukan';
+            // $provinsi = collect($provinsis)->firstWhere('id', (string) $pegawai->provinsi);
+            // $pegawai->nama_provinsi = $provinsi ? $provinsi['name'] : 'Provinsi tidak ditemukan';
 
             // Mengambil data kota berdasarkan ID provinsi
             $responseKota = Http::get("https://wilayah.id/api/regencies/{$pegawai->provinsi}.json");
