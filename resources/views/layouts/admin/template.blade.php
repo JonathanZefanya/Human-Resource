@@ -13,7 +13,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon"w
-        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIoMmTAmRH0abn7f5jb2sQvX8SOLsN2cCZ2A&s"
+        href="https://i.pinimg.com/736x/f9/94/e5/f994e55f17392b8d6e204be294ffc4dc.jpg"
         class="rounded-circle" />
 
     <!-- Fonts -->
