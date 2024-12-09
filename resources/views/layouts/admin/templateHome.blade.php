@@ -97,7 +97,7 @@
                                                     <b>{{ Auth::user()->nama_pegawai }}</b> 🎉
                                                 </h5>
                                                 <p class="mb-4">
-                                                    Ini Adalah Halaman Utama <span class="fw-bold">Human Resource.</span>
+                                                    Ini Adalah Halaman Utama <span class="fw-bold">Human Resource Management System.</span>
                                                     <br>
                                                     Silahkan Cek Menu Menu Disini Untuk Melihat Informasi Yang Tersedia.
                                                 </p>

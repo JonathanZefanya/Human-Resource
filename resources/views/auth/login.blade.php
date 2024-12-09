@@ -27,7 +27,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #4070f4;
+            /* background-color: #4070f4; */
+            background: linear-gradient(135deg, #4070f4, #a239ea);
             column-gap: 30px;
         }
 
