@@ -21,39 +21,39 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .container {
+        body {
             height: 100vh;
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* background-color: #4070f4; */
-            background: linear-gradient(135deg, #4070f4, #a239ea);
-            column-gap: 30px;
+            overflow: hidden;
         }
 
-        .form {
-            position: absolute;
-            max-width: 430px;
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 430px;
             padding: 30px;
             border-radius: 6px;
-            background: #FFF;
-        }
-
-        .form.signup {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .forms.show-signup .form.signup {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .forms.show-signup .form.login {
-            opacity: 0;
-            pointer-events: none;
+            background: rgba(255, 255, 255, 0.64);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         header {
@@ -67,7 +67,7 @@
             margin-top: 30px;
         }
 
-        .form .field {
+        .field {
             position: relative;
             height: 50px;
             width: 100%;
@@ -88,7 +88,7 @@
         .field input {
             outline: none;
             padding: 0 15px;
-            border: 1px solid#CACACA;
+            border: 1px solid #CACACA;
         }
 
         .field input:focus {
@@ -187,7 +187,7 @@
         }
 
         @media screen and (max-width: 400px) {
-            .form {
+            .container {
                 padding: 20px 10px;
             }
 
@@ -196,40 +196,43 @@
 </head>
 
 <body>
+    <div class="video-bg">
+        <video autoplay muted loop>
+            <source src="/videos/bd2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <section class="container forms">
         <div class="form login">
             <div class="form-content">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <header>Login</header>
-                    <form action="#">
-                        <div class="field input-field">
-                            <input id="email" type="email"
-                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                    <div class="field input-field">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                            value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-                        <div class="field input-field">
-                            <input id="password" type="password"
-                                class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="current-password" placeholder="Password">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            <i class='bx bx-hide eye-icon' id="togglePassword"></i>
-                        </div>
+                    <div class="field input-field">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required
+                            autocomplete="current-password" placeholder="Password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <i class='bx bx-hide eye-icon' id="togglePassword"></i>
+                    </div>
 
-                        <div class="field button-field">
-                            <button type="submit">Login</button>
-                        </div>
-                    </form>
+                    <div class="field button-field">
+                        <button type="submit">Login</button>
+                    </div>
                 </form>
             </div>
 
@@ -248,7 +251,7 @@
         const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
 
-        togglePassword.addEventListener("click", function() {
+        togglePassword.addEventListener("click", function () {
             // Toggle the type attribute
             const type = password.getAttribute("type") === "password" ? "text" : "password";
             password.setAttribute("type", type);
