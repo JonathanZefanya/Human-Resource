@@ -116,7 +116,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 order-1">
+                            <!-- <div class="col-lg-4 col-md-4 order-1">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12 col-6 mb-4">
                                         <div class="card">
@@ -159,6 +159,53 @@
                                                 </h3>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <!-- Di bawah ini adalah konten untuk pegawai dan gaji -->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <small class="text-warning fw-semibold">
+                                                    <i class='bx bxs-user-circle' style="font-size: 50px"></i>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <span>Pegawai</span>
+                                        <div class="row pt-2">
+                                            <div class="col">
+                                                <h3 class="card-title text-nowrap">
+                                                    {{ $totalPegawai }}
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <a href="{{ route('pegawai.index') }}" class="btn btn-primary btn-sm">
+                                                Lihat
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex align-items-start justify-content-between">
+                                            <div class="avatar flex-shrink-0">
+                                                <small class="text-primary fw-semibold">
+                                                    <i class='bx bxs-wallet' style="font-size: 50px"></i>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <span>Gaji Keseluruhan</span>
+                                        <h3 class="card-title text-nowrap mb-1 mt-3">
+                                            Rp. {{ number_format($totalPenggajian, 0, ',', '.') }}
+                                        </h3>
                                     </div>
                                 </div>
                             </div>
