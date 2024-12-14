@@ -27,6 +27,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
         .video-bg {
@@ -46,14 +47,19 @@
         }
 
         .container {
-            position: relative;
+            position: absolute;
             z-index: 1;
             width: 100%;
             max-width: 430px;
             padding: 30px;
             border-radius: 6px;
-            background: rgba(255, 255, 255, 0.64);
+            background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: grab;
+        }
+
+        .container:active {
+            cursor: grabbing;
         }
 
         header {
@@ -197,13 +203,10 @@
 
 <body>
     <div class="video-bg">
-        <video autoplay muted loop>
-            <source src="/videos/bd2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <video src="/videos/bd2.mp4" autoplay muted loop></video>
     </div>
 
-    <section class="container forms">
+    <section class="container forms" id="draggable">
         <div class="form login">
             <div class="form-content">
                 <form method="POST" action="{{ route('login') }}">
@@ -260,6 +263,56 @@
             this.classList.toggle('bx-hide');
             this.classList.toggle('bx-show');
         });
+
+        const draggable = document.getElementById('draggable');
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        draggable.addEventListener('mousedown', (e) => {
+            if (e.button === 0) { // Left mouse button
+                isDragging = true;
+                offsetX = e.clientX - draggable.offsetLeft;
+                offsetY = e.clientY - draggable.offsetTop;
+                draggable.style.position = 'absolute';
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                draggable.style.left = `${e.clientX - offsetX}px`;
+                draggable.style.top = `${e.clientY - offsetY}px`;
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events for mobile
+        draggable.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                const touch = e.touches[0];
+                offsetX = touch.clientX - draggable.offsetLeft;
+                offsetY = touch.clientY - draggable.offsetTop;
+                draggable.style.position = 'absolute';
+            }
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging && e.touches.length === 1) {
+                const touch = e.touches[0];
+                draggable.style.left = `${touch.clientX - offsetX}px`;
+                draggable.style.top = `${touch.clientY - offsetY}px`;
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Prevent context menu on right click
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
     </script>
 
 </body>
