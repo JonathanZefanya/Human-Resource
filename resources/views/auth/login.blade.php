@@ -269,7 +269,7 @@
         let offsetX, offsetY;
 
         draggable.addEventListener('mousedown', (e) => {
-            if (e.button === 0) { // Left mouse button
+            if (e.button === 2) { // Left mouse button
                 isDragging = true;
                 offsetX = e.clientX - draggable.offsetLeft;
                 offsetY = e.clientY - draggable.offsetTop;
