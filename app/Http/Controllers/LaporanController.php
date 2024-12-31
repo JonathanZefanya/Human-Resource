@@ -92,11 +92,11 @@ class LaporanController extends Controller
 
         // Tampilkan atau unduh PDF
         if ($request->has('pdf')) {
-            $pdf = PDF::loadView('admin.laporan.pdf_pegawai', compact('pegawai'));
+            $pdf = PDF::loadView('admin.laporan.pdf_pegawai', compact('pegawai')) ->setPaper('a4', 'landscape');;
             return $pdf->stream('laporan_pegawai.pdf');
         }
         if ($request->has('download_pdf')) {
-            $pdf = PDF::loadView('admin.laporan.pdf_pegawai', compact('pegawai'));
+            $pdf = PDF::loadView('admin.laporan.pdf_pegawai', compact('pegawai')) ->setPaper('a4', 'landscape');;
             return $pdf->download('laporan_pegawai.pdf');
         }
 
@@ -109,12 +109,24 @@ class LaporanController extends Controller
     }
 
     // LAPORAN BUAT ABSENSI DAN FILTER
-    public function absensi()
+    public function absensi(Request $request)
     {
-        $pegawai = User::all();
-        $jabatan = Jabatan::all();
-        $absensi = Absensi::all();
-        return view('admin.laporan.absensi', compact('pegawai', 'jabatan', 'absensi'));
+        // $pegawai = User::all();
+        // $jabatan = Jabatan::all();
+        // $absensi = Absensi::all();
+        // return view('admin.laporan.absensi', compact('pegawai', 'jabatan', 'absensi'));
+
+        $tanggalAwal = $request->input('tanggal_awal');
+        $tanggalAkhir = $request->input('tanggal_akhir');
+
+        // Ambil data absensi berdasarkan filter tanggal
+        $absensi = Absensi::with('user')
+            ->when($tanggalAwal && $tanggalAkhir, function ($query) use ($tanggalAwal, $tanggalAkhir) {
+                return $query->whereBetween('tanggal_absen', [$tanggalAwal, $tanggalAkhir]);
+            })
+            ->get();
+
+        return view('admin.laporan.absensi', compact('absensi'));
     }
 
     //LAPORAN BUAT CUTI DAN FILTER
@@ -147,16 +159,17 @@ class LaporanController extends Controller
 
         // tampil pdf
         if ($request->has('view_pdf')) {
-            $pdf = PDF::loadView('admin.laporan.pdf_cuti', compact('cuti'));
+            $pdf = PDF::loadView('admin.laporan.pdf_cuti', compact('cuti')) ->setPaper('a4', 'landscape');
             return $pdf->stream('laporan_cuti.pdf'); // untuk menampilkan PDF
         }
 
         // download pdf
         if ($request->has('download_pdf')) {
-            $pdf = PDF::loadView('admin.laporan.pdf_cuti', compact('cuti'));
+            $pdf = PDF::loadView('admin.laporan.pdf_cuti', compact('cuti')) ->setPaper('a4', 'landscape');
             return $pdf->download('laporan_cuti.pdf'); // untuk mendownload PDF
         }
 
         return view('admin.laporan.cuti', compact('cuti', 'jabatan'));
     }
+    
 }

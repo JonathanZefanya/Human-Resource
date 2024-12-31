@@ -101,6 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', isAdmin::class]], fu
     Route::put('/cuti/confirm/{id}', [CutisController::class, 'confirm'])->name('cuti.confirm');
     Route::delete('cuti/{id}', [CutisController::class, 'destroy'])->name('cuti.destroy');
     Route::put('/cuti/approve/{id}', [CutisController::class, 'approve'])->name('cuti.approve');
+    Route::put('/cuti/reject/{id}', [CutisController::class, 'reject'])->name('cuti.reject');
 
     
 
