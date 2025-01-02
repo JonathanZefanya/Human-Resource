@@ -302,10 +302,10 @@
         new Chart(ctx1, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Pengeluaran (Dalam bentuk juta)',
+                    data: [30, 24, 15, 25, 18, 32],
                     borderWidth: 1
                 }]
             },
@@ -325,8 +325,8 @@
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June'],
                 datasets: [{
-                    label: '# of Sales',
-                    data: [5, 10, 15, 20, 25, 30],
+                    label: 'Pemasukan (Dalam bentuk juta)',
+                    data: [28, 30, 33, 25, 28, 30],
                     borderWidth: 1
                 }]
             },
