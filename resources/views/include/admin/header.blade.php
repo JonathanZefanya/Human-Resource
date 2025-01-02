@@ -78,7 +78,7 @@
                     }
                 },
                 (error) => {
-                    locationElement.innerText = "Location unavailable";
+                    locationElement.innerText = "Lokasi Tidak Dapat Diakses";
                 }
             );
         } else {
