@@ -14,8 +14,9 @@ class BerkasController extends Controller
      */
     public function index()
     {
-        $pegawai = User::all();
-        $berkas = Berkas::all();
+        $pegawai = User::all(); // Mendapatkan semua pegawai
+        $berkas = Berkas::with('pegawai')->get(); // Load relasi pegawai untuk setiap berkas
+
         return view('admin.berkas.index', compact('berkas', 'pegawai'));
     }
 

@@ -110,149 +110,80 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($berkas as $data)
+                        @if ($berkas->isEmpty())
                             <tr>
-                                <td>{{ $loop->index + 1 }}</td>
-                                <td>{{ $data->pegawai->nama_pegawai }}</td>
-                                <td>
-                                    <a href="javascript:void(0)" class="btn rounded-pill btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#viewCVModal{{ $data->id }}"
-                                        style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
-                                        <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
-                                            data-bs-placement="left" data-bs-html="true" title="Lihat CV"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)" class="btn rounded-pill btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#viewKKModal{{ $data->id }}"
-                                        style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
-                                        <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
-                                            data-bs-placement="left" data-bs-html="true" title="Lihat KK"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)" class="btn rounded-pill btn-primary"
-                                        data-bs-toggle="modal" data-bs-target="#viewKTPModal{{ $data->id }}"
-                                        style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
-                                        <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
-                                            data-bs-placement="left" data-bs-html="true" title="Lihat KTP"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)" class="btn rounded-pill btn-primary"
-                                        data-bs-toggle="modal" data-bs-target="#viewAKTEModal{{ $data->id }}"
-                                        style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
-                                        <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
-                                            data-bs-placement="left" data-bs-html="true" title="Lihat AKTE"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-warning" href="{{ route('berkas.edit', $data->id) }}">Edit</a>
-                                    
-                                    <button class="btn btn-danger btn-delete" data-id="{{ $data->id }}">Delete</button>
-                                    
-                                    <form id="delete-form-{{ $data->id }}" action="{{ route('berkas.destroy', $data->id) }}" method="POST" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                </td>
+                                <td colspan="7" class="text-center">Data tidak ditemukan</td>
                             </tr>
-                            <!-- Modal Lihat CV -->
-                            <div class="modal fade" id="viewCVModal{{ $data->id }}" tabindex="-1"
-                                aria-hidden="true" data-bs-backdrop="static">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                        @else
+                            @foreach ($berkas as $data)
+                                <tr>
+                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>{{ $data->pegawai->nama_pegawai }}</td>
+                                    <td>
+                                        <a href="javascript:void(0)" class="btn rounded-pill btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#viewCVModal{{ $data->id }}"
+                                            style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
+                                            <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                                                data-bs-placement="left" data-bs-html="true" title="Lihat CV"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0)" class="btn rounded-pill btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#viewKKModal{{ $data->id }}"
+                                            style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
+                                            <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                                                data-bs-placement="left" data-bs-html="true" title="Lihat KK"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0)" class="btn rounded-pill btn-primary"
+                                            data-bs-toggle="modal" data-bs-target="#viewKTPModal{{ $data->id }}"
+                                            style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
+                                            <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                                                data-bs-placement="left" data-bs-html="true" title="Lihat KTP"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0)" class="btn rounded-pill btn-primary"
+                                            data-bs-toggle="modal" data-bs-target="#viewAKTEModal{{ $data->id }}"
+                                            style="padding-left: 20px; padding-right: 20px; padding-top: 7px; padding-bottom: 7px">
+                                            <i class="bx bx-search-alt" data-bs-toggle="tooltip" data-bs-offset="0,4"
+                                                data-bs-placement="left" data-bs-html="true" title="Lihat AKTE"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-warning" href="{{ route('berkas.edit', $data->id) }}">Edit</a>
+                                        <button class="btn btn-danger btn-delete" data-id="{{ $data->id }}">Delete</button>
+                                        <form id="delete-form-{{ $data->id }}" action="{{ route('berkas.destroy', $data->id) }}" method="POST" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            <!-- Modal Konfirmasi Hapus -->
+                            <div class="modal fade" id="deleteModal{{ $data->id }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Lihat CV - {{ $data->pegawai->nama_pegawai }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="embed-responsive" style="height: 500px;">
-                                                <embed src="{{ Storage::url($data->file_cv) }}" type="application/pdf"
-                                                    width="100%" height="100%">
-                                            </div>
+                                            Apakah Anda yakin ingin menghapus berkas ini?
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
+                                            <form action="{{ route('berkas.destroy', $data->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Modal Lihat KK -->
-                            <div class="modal fade" id="viewKKModal{{ $data->id }}" tabindex="-1"
-                                aria-hidden="true" data-bs-backdrop="static">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Lihat KK - {{ $data->pegawai->nama_pegawai }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="embed-responsive" style="height: 500px;">
-                                                <embed src="{{ Storage::url($data->file_kk) }}" type="application/pdf"
-                                                    width="100%" height="100%">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Modal Lihat KTP -->
-                            <div class="modal fade" id="viewKTPModal{{ $data->id }}" tabindex="-1"
-                                aria-hidden="true" data-bs-backdrop="static">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Lihat KTP - {{ $data->pegawai->nama_pegawai }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="embed-responsive" style="height: 500px;">
-                                                <embed src="{{ Storage::url($data->file_ktp) }}" type="application/pdf"
-                                                    width="100%" height="100%">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Modal Lihat AKTE -->
-                            <div class="modal fade" id="viewAKTEModal{{ $data->id }}" tabindex="-1"
-                                aria-hidden="true" data-bs-backdrop="static">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Lihat AKTE - {{ $data->nama }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="embed-responsive" style="height: 500px;">
-                                                <embed src="{{ Storage::url($data->file_akte) }}" type="application/pdf"
-                                                    width="100%" height="100%">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -317,55 +248,32 @@
         </div>
     </div>
 
-    <!-- Modal Konfirmasi Hapus -->
-<div class="modal fade" id="deleteModal{{ $data->id }}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Konfirmasi Hapus</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Apakah Anda yakin ingin menghapus berkas ini?
-            </div>
-            <div class="modal-footer">
-                <form action="{{ route('berkas.destroy', $data->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                </form>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const deleteButtons = document.querySelectorAll('.btn-delete');
-        
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const dataId = this.getAttribute('data-id');
-                
-                Swal.fire({
-                    title: 'Apakah Anda yakin?',
-                    text: "Data ini akan dihapus secara permanen!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Ya, hapus!',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.getElementById(`delete-form-${dataId}`).submit();
-                    }
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.btn-delete');
+            
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const dataId = this.getAttribute('data-id');
+                    
+                    Swal.fire({
+                        title: 'Apakah Anda yakin?',
+                        text: "Data ini akan dihapus secara permanen!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById(`delete-form-${dataId}`).submit();
+                        }
+                    });
                 });
             });
         });
-    });
-</script>
+    </script>
 
 @endsection
