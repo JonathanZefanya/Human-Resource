@@ -133,4 +133,33 @@ class BerkasController extends Controller
 
         return redirect()->route('berkas.index')->with('success', 'Berkas berhasil dihapus.');
     }
+
+    public function viewFile($type, $id)
+    {
+        $berkas = Berkas::findOrFail($id);
+
+        switch ($type) {
+            case 'cv':
+                $filePath = $berkas->file_cv;
+                break;
+            case 'kk':
+                $filePath = $berkas->file_kk;
+                break;
+            case 'ktp':
+                $filePath = $berkas->file_ktp;
+                break;
+            case 'akte':
+                $filePath = $berkas->file_akte;
+                break;
+            default:
+                abort(404, 'File tidak ditemukan.');
+        }
+
+        if (!Storage::disk('public')->exists($filePath)) {
+            abort(404, 'File tidak ditemukan.');
+        }
+
+        return response()->file(storage_path('app/public/' . $filePath));
+    }
+
 }

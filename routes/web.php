@@ -114,6 +114,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', isAdmin::class]], fu
     Route::get('berkas/{id}/edit', [BerkasController::class, 'edit'])->name('berkas.edit');
     Route::put('berkas/{id}', [BerkasController::class, 'update'])->name('berkas.update');
     Route::delete('berkas/{id}', [BerkasController::class, 'destroy'])->name('berkas.destroy');
+    Route::get('/berkas/view/{type}/{id}', [BerkasController::class, 'viewFile'])->name('berkas.view');
+
 
     //Route laporan
     Route::get('laporan/pegawai', [LaporanController::class, 'pegawai'])->name('laporan.pegawai');
