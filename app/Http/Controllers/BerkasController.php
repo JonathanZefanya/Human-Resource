@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berkas;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BerkasController extends Controller
 {
@@ -82,24 +83,53 @@ class BerkasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Berkas $berkas)
+    public function edit($id)
     {
-        //
+        $berkas = Berkas::findOrFail($id);
+        return view('admin.berkas.edit', compact('berkas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Berkas $berkas)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'file_cv' => 'nullable|file|mimes:pdf',
+            'file_kk' => 'nullable|file|mimes:pdf',
+            'file_ktp' => 'nullable|file|mimes:pdf',
+            'file_akte' => 'nullable|file|mimes:pdf',
+        ]);
+
+        $berkas = Berkas::findOrFail($id);
+
+        if ($request->hasFile('file_cv')) {
+            Storage::delete($berkas->file_cv);
+            $berkas->file_cv = $request->file('file_cv')->store('berkas', 'public');
+        }
+        if ($request->hasFile('file_kk')) {
+            Storage::delete($berkas->file_kk);
+            $berkas->file_kk = $request->file('file_kk')->store('berkas' , 'public');
+        }
+        if ($request->hasFile('file_ktp')) {
+            Storage::delete($berkas->file_ktp);
+            $berkas->file_ktp = $request->file('file_ktp')->store('berkas' , 'public');
+        }
+        if ($request->hasFile('file_akte')) {
+            Storage::delete($berkas->file_akte);
+            $berkas->file_akte = $request->file('file_akte')->store('berkas' , 'public');
+        }
+
+        $berkas->save();
+
+        return redirect()->route('berkas.index')->with('success', 'Berkas berhasil diperbarui.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Berkas $berkas)
+    public function destroy($id)
     {
-        //
+        $berkas = Berkas::findOrFail($id);
+
+        Storage::delete([$berkas->file_cv, $berkas->file_kk, $berkas->file_ktp, $berkas->file_akte]);
+
+        $berkas->delete();
+
+        return redirect()->route('berkas.index')->with('success', 'Berkas berhasil dihapus.');
     }
 }

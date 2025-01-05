@@ -106,7 +106,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', isAdmin::class]], fu
     
 
     //Route berkas
-    // Route::resource('berkas', BerkasController::class);
+    Route::resource('berkas', BerkasController::class);
     Route::get('berkas', [BerkasController::class, 'index'])->name('berkas.index');
     Route::get('berkas/create', [BerkasController::class, 'create'])->name('berkas.create');
     Route::post('berkas', [BerkasController::class, 'store'])->name('berkas.store');
