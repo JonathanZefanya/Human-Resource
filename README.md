@@ -50,7 +50,7 @@ Berikut adalah fitur-fitur yang tersedia dalam HRMS:
 | Melihat Gaji     | ![Melihat Gaji](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/user/gaji.png)    |
 
 ---
-
+## Teknologi Yang Dipakai
 - **Laravel 11 (Blade)** - Framework PHP untuk membangun aplikasi web yang cepat dan aman.
 - **MySQL** - Basis data relasional untuk menyimpan data karyawan dan transaksi.
 - **Packages** yang digunakan:
