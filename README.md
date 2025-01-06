@@ -6,7 +6,28 @@ Human Resource Management System (HRMS) adalah sebuah sistem untuk manajemen kar
 
 ## 📋 Fitur-Fitur
 
-### Fitur Khusus Admin
+### Deskripsi
+## 📋 Fitur-Fitur
+Berikut adalah fitur-fitur yang tersedia dalam HRMS:
+
+| Fitur             | Deskripsi                          |
+|-------------------|------------------------------------|
+| **Management Karyawan** | Mengelola data karyawan, termasuk menambah, mengedit, dan menghapus data karyawan. |
+| **Penggajian Karyawan**  | Mengatur penggajian karyawan dengan perhitungan otomatis dan laporan gaji. |
+| **Rekrutmen Karyawan**   | Mengelola proses rekrutmen mulai dari pengumuman lowongan hingga seleksi. |
+| **Management Cuti**      | Mengatur pengajuan dan persetujuan cuti karyawan. |
+| **Management Data Pribadi** | Mengelola informasi pribadi karyawan seperti alamat, kontak, dan dokumen penting. |
+| **Management Data Absensi** | Mencatat dan memantau kehadiran karyawan. |
+| **Management Laporan**   | Membuat laporan terkait kinerja dan data karyawan. |
+
+### Fitur Khusus untuk Karyawan/User
+- Absensi harian secara online.
+- Pengajuan cuti langsung dari sistem.
+- Izin sakit dengan mengunggah bukti.
+- Melihat slip gaji dan histori pembayaran.
+
+### Screenshot
+#### Fitur Khusus Admin
 
 | Nama Fitur             | Gambar Preview               |
 |------------------------|------------------------------|
@@ -18,7 +39,7 @@ Human Resource Management System (HRMS) adalah sebuah sistem untuk manajemen kar
 | Management Absensi     | ![Absensi](#)                |
 | Management Laporan     | ![Laporan](#)                |
 
-### Fitur Khusus Karyawan/User
+#### Fitur Khusus Karyawan/User
 
 | Nama Fitur       | Gambar Preview        |
 |------------------|-----------------------|
