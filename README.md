@@ -44,10 +44,10 @@ Berikut adalah fitur-fitur yang tersedia dalam HRMS:
 
 | Nama Fitur       | Gambar Preview        |
 |------------------|-----------------------|
-| Absensi          | ![Absensi](#)         |
-| Pengajuan Cuti   | ![Pengajuan Cuti](#)  |
-| Izin Sakit       | ![Izin Sakit](#)      |
-| Melihat Gaji     | ![Melihat Gaji](#)    |
+| Absensi          | ![Absensi](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/user/absensi.png)         |
+| Pengajuan Cuti   | ![Pengajuan Cuti](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/user/cuti.png)  |
+| Izin Sakit       | ![Izin Sakit](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/user/izinsakit.png)      |
+| Melihat Gaji     | ![Melihat Gaji](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/user/gaji.png)    |
 
 ---
 
