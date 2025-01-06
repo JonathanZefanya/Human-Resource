@@ -29,16 +29,14 @@ Human Resource Management System (HRMS) adalah sebuah sistem untuk manajemen kar
 
 ---
 
-## ⚙️ Teknologi yang Digunakan
-
-- **Laravel 11** (Blade Template Engine)
-- **MySQL**
-- **Packages yang Digunakan:**
-  - `socialite`
-  - `laravel-notify`
-  - `excel`
-  - `tinker`
-  - `sweet-alert`
+- **Laravel 11 (Blade)** - Framework PHP untuk membangun aplikasi web yang cepat dan aman.
+- **MySQL** - Basis data relasional untuk menyimpan data karyawan dan transaksi.
+- **Packages** yang digunakan:
+  - `socialite` - Untuk integrasi login menggunakan media sosial.
+  - `laravel-notify` - Untuk menampilkan notifikasi.
+  - `excel` - Untuk ekspor dan impor data dalam format Excel.
+  - `tinker` - Untuk menjalankan perintah Artisan secara interaktif.
+  - `sweet-alert` - Untuk menampilkan pesan alert yang interaktif dan menarik.
 
 ---
 
@@ -50,22 +48,39 @@ Kalian dapat melihat preview project di deskripsi, atau kunjungi langsung websit
 
 ---
 
-## 📌 Cara Menjalankan Project
+## 📚 Cara Install
+Ikuti langkah-langkah berikut untuk menginstal project HRMS:
 
-1. Clone repository ini.
-2. Install dependensi dengan perintah:
+1. Clone repository ini ke komputer lokal Anda:
+   ```bash
+   git clone https://github.com/username/hrms.git
+   ```
+
+2. Masuk ke direktori project:
+   ```bash
+   cd hrms
+   ```
+
+3. Install dependencies menggunakan Composer:
    ```bash
    composer install
-   npm install
    ```
-3. Konfigurasi file `.env` sesuai dengan database lokal.
-4. Jalankan migrasi:
+
+4. Buat file `.env` dan sesuaikan konfigurasi database Anda.
+
+5. Jalankan migrasi untuk membuat tabel di database:
    ```bash
    php artisan migrate
    ```
-5. Jalankan server lokal:
+
+6. Jalankan server lokal:
    ```bash
    php artisan serve
+   ```
+
+7. Akses aplikasi di browser dengan URL:
+   ```
+   http://localhost:8000
    ```
 
 ---
