@@ -9,6 +9,8 @@ Human Resource Management System (HRMS) adalah sebuah sistem untuk manajemen kar
 ### Deskripsi
 Berikut adalah fitur-fitur yang tersedia dalam HRMS:
 
+### Fitur Khusus Admin
+
 | Fitur             | Deskripsi                          |
 |-------------------|------------------------------------|
 | **Management Karyawan** | Mengelola data karyawan, termasuk menambah, mengedit, dan menghapus data karyawan. |
