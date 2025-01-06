@@ -124,7 +124,15 @@ class LaporanController extends Controller
             ->when($tanggalAwal && $tanggalAkhir, function ($query) use ($tanggalAwal, $tanggalAkhir) {
                 return $query->whereBetween('tanggal_absen', [$tanggalAwal, $tanggalAkhir]);
             })
-            ->get();
+            ->get()
+            ->map(function ($item) {
+                if ($item->status == 'sakit') {
+                    $item->note = 'Sakit';
+                } else {
+                    $item->note = $item->note ?? '-';
+                }
+                return $item;
+            });
 
         return view('admin.laporan.absensi', compact('absensi'));
     }

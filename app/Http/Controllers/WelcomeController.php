@@ -76,7 +76,7 @@ class WelcomeController extends Controller
 
         // Check for lateness
         $note = null;
-        $latenessTime = Carbon::createFromTime(8, 0, 0, 'Asia/Jakarta');
+        $latenessTime = Carbon::createFromTime(12, 0, 0, 'Asia/Jakarta');
         if ($currentTime->greaterThan($latenessTime)) {
             $note = 'Telat';
         }
