@@ -75,7 +75,7 @@ Ikuti langkah-langkah berikut untuk menginstal project HRMS:
 
 1. Clone repository ini ke komputer lokal Anda:
    ```bash
-   git clone https://github.com/username/hrms.git
+   git clone https://github.com/JonathanZefanya/Human-Resource.git
    ```
 
 2. Masuk ke direktori project:
