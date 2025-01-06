@@ -32,13 +32,13 @@ Berikut adalah fitur-fitur yang tersedia dalam HRMS:
 
 | Nama Fitur             | Gambar Preview               |
 |------------------------|------------------------------|
-| Management Karyawan    | ![Management Karyawan](#)    |
-| Penggajian Karyawan    | ![Penggajian Karyawan](#)    |
-| Rekrutmen Karyawan     | ![Rekrutmen Karyawan](#)     |
-| Management Cuti        | ![Management Cuti](#)        |
-| Management Data Pribadi| ![Data Pribadi](#)           |
-| Management Absensi     | ![Absensi](#)                |
-| Management Laporan     | ![Laporan](#)                |
+| Management Karyawan    | ![Management Karyawan](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/admin/mk.png)    |
+| Penggajian Karyawan    | ![Penggajian Karyawan](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/admin/gaji.png)    |
+| Rekrutmen Karyawan     | ![Rekrutmen Karyawan](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/admin/rk.png)     |
+| Management Cuti        | ![Management Cuti](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/admin/cuti.png)        |
+| Management Data Pribadi| ![Data Pribadi](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/admin/dp.png)           |
+| Management Absensi     | ![Absensi](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/admin/ma.png)                |
+| Management Laporan     | ![Laporan](https://github.com/JonathanZefanya/Human-Resource/blob/main/Screenshoot/admin/laporan.png)                |
 
 #### Fitur Khusus Karyawan/User
 
