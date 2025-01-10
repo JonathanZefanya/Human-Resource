@@ -1,13 +1,21 @@
 <style>
     aside#sidenav-main {
-        height: 100vh; /* Menyesuaikan tinggi dengan layar */
-        overflow-y: auto; /* Menambahkan scroll jika kontennya panjang */
-        position: fixed; /* Memastikan navbar tetap berada di sisi kiri */
-        top: 0; /* Mulai dari atas layar */
-        left: 0; /* Mulai dari sisi kiri layar */
-        width: 250px; /* Atur lebar sidebar sesuai kebutuhan */
-        background-color: #fff; /* Warna background */
-        z-index: 1030; /* Menyesuaikan posisi dengan elemen lainnya */
+        height: 100vh;
+        /* Menyesuaikan tinggi dengan layar */
+        overflow-y: auto;
+        /* Menambahkan scroll jika kontennya panjang */
+        position: fixed;
+        /* Memastikan navbar tetap berada di sisi kiri */
+        top: 0;
+        /* Mulai dari atas layar */
+        left: 0;
+        /* Mulai dari sisi kiri layar */
+        width: 250px;
+        /* Atur lebar sidebar sesuai kebutuhan */
+        background-color: #fff;
+        /* Warna background */
+        z-index: 1030;
+        /* Menyesuaikan posisi dengan elemen lainnya */
     }
 
     .nav-item.active .nav-link {
@@ -33,8 +41,8 @@
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="#" target="_blank">
-            <img src="{{ asset('user/assets/img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">human resource</span>
+            <img src={{ asset('admin/assets/img/logo/logo.png') }} alt="Logo" class="app-brand-logo"
+                style="max-width: 100%; height: auto;">
         </a>
     </div>
     <hr class="horizontal dark mt-0">

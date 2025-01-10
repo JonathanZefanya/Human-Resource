@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('user/assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('user/assets/img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('https://iili.io/2rOi5VR.th.png') }}">
     <title>
         Karyawan Dashboard
     </title>
@@ -25,7 +25,7 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+
     <style>
         .bg-primary {
             background-color: #0d6efd !important;

@@ -7,7 +7,7 @@
                   document.write(new Date().getFullYear())
                 </script>,
                 Source Design <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+                <a href="https://www.hardianto.site/" class="font-weight-bold" target="_blank">Hardianto</a>
                 .
               </div>
             </div>

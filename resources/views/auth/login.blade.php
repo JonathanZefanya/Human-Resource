@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>login</title>
+    <title>Login</title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <!-- icon -->
-    <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/f9/94/e5/f994e55f17392b8d6e204be294ffc4dc.jpg" />
+    <link rel="icon" type="image/png" href="https://iili.io/2rOi5VR.th.png" />
 
     <style>
         /* Google Fonts - Poppins */
@@ -203,7 +203,7 @@
 
 <body>
     <div class="video-bg">
-        <video src="/videos/bd2.mp4" autoplay muted loop></video>
+        <video src="/videos/grow.mp4" autoplay muted loop style="background-color: gray;"></video>
     </div>
 
     <section class="container forms" id="draggable">
@@ -211,6 +211,7 @@
             <div class="form-content">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
+                    <img src={{ asset('admin/assets/img/logo/logo.png') }} alt="Logo" class="app-brand-logo" style="max-width: 100%; height: auto;">
                     <header>Login</header>
                     <div class="field input-field">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
